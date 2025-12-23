@@ -1,0 +1,228 @@
+@charset "UTF-8";
+
+/* ------------------------------
+   ベース設定
+------------------------------ */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden; /* ← 横切れ防止の要 */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+               "Noto Sans JP", sans-serif;
+  background-color: #f6f8f7;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ------------------------------
+   レイアウト
+------------------------------ */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+
+#total-time {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* ------------------------------
+   種別切り替え
+------------------------------ */
+.type-selector {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.type-selector button {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid #cfd8d3;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.type-selector button.active {
+  background-color: #2fa89a;
+  color: #fff;
+  border-color: #2fa89a;
+}
+
+/* ------------------------------
+   セクション共通
+------------------------------ */
+section {
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+section h2 {
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+/* ------------------------------
+   フォーム
+------------------------------ */
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  gap: 6px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccd6d1;
+  font-size: 0.95rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2fa89a;
+}
+
+button[type="submit"] {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2fa89a;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* ------------------------------
+   一覧
+------------------------------ */
+.list-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-section li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 4px;
+  border-bottom: 1px solid #eef2f0;
+}
+
+.list-section li:last-child {
+  border-bottom: none;
+}
+
+.drag-handle {
+  cursor: grab;
+  font-size: 1.4rem;
+  color: #9aa3a0;
+  user-select: none;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.list-section .name {
+  flex: 1;
+  min-width: 0; /* ← 文字折り返し安全対策 */
+}
+
+.list-section .minutes {
+  font-size: 0.85rem;
+  color: #666;
+  white-space: nowrap;
+}
+
+.list-section .delete {
+  font-size: 0.8rem;
+  color: #c44;
+  text-decoration: none;
+}
+
+.dragging {
+  opacity: 0.6;
+}
+
+/* ------------------------------
+   グラフ
+------------------------------ */
+.chart-section {
+  text-align: center;
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: 260px; /* ← スマホ安全高さ */
+  margin: 0 auto;
+}
+
+.chart-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* ------------------------------
+   📱 スマホ対応
+------------------------------ */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  section {
+    padding: 16px;
+  }
+
+  .drag-handle {
+    font-size: 1.6rem;
+  }
+}
+
+/* ------------------------------
+   💻 PC用調整
+------------------------------ */
+@media (min-width: 769px) {
+  .chart-wrapper {
+    height: 320px;
+  }
+}

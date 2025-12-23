@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>1日の過ごし方 可視化アプリ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <main class="container">
+    <h1>MY DAY</h1>
+
+    <!-- 入力フォーム -->
+    <section class="form-section">
+      <form action="/add" method="post">
+        <label>
+          action
+          <input type="text" name="name" required>
+        </label>
+
+        <label>
+          時間（分）
+          <input type="number" name="minutes" min="1" required>
+        </label>
+
+        <button type="submit">＋</button>
+      </form>
+    </section>
+
+    <!-- リスト表示 -->
+    <section class="list-section">
+      <h2>一覧</h2>
+      <ul id="activity-list">
+        <!-- JavaScriptで生成 -->
+      </ul>
+    </section>
+
+    <!-- 円グラフ -->
+    <section class="chart-section">
+      <p id="total-time"></p>
+
+      <!-- ★ 必須ラッパー -->
+      <div class="chart-wrapper">
+        <canvas id="pieChart"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <!-- JavaScript -->
+  <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+</body>
+</html>
