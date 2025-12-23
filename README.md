@@ -85,7 +85,7 @@
 - PWA化（ホーム画面追加）
 - データ永続化（PostgreSQL）
 
----## ライセンス
+---
+## ライセンス
 
 This project is licensed under the MIT License.
-## ライセンス
